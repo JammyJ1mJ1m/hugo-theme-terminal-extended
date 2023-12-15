@@ -1,6 +1,7 @@
 
     <a class="portfolio-link" href="{{.RelPermalink}}">
       <div class="portfolio-grid-item">
+        {{ if not .Params.published}}
           {{ if .Params.portfolioCover }}
             <div>
               <img class="portfolio-grid-item-image" src="{{ .Params.portfolioCover | absURL }}" alt="{{ .Title | plainify | default " " }}" /> 
@@ -13,6 +14,8 @@
                 <img class="portfolio-grid-item-icon" height="14" width="14" src={{ . | absURL }} />
               {{ end }}
             {{ end }}
+            {{ end }}
+
           </div>
       </div>
     </a>
