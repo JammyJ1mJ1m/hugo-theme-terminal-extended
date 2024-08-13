@@ -1,1 +1,12 @@
 // To override in project
+ @keyframes wobble { 
+    0% { transform: translateX(0%); } 
+    33% { transform: translateX(-3%) rotate(-2deg); } 
+    66% { transform: translateX(3%) rotate(2deg); } 
+    100% { transform: translateX(0%); } 
+ }
+ 
+ .logo:hover {
+    animation: wobble .2s;
+    animation-iteration-count:initial;
+}
