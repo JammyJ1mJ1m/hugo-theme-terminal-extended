@@ -1,5 +1,5 @@
 /* COLOR VARIABLES */
-$background: mix($accent, #2e3740, 2%);
+$background: mix($accent, $background, 2%);
 $color: white;
 $border-color: #00dfc3;
 
