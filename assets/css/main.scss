@@ -118,25 +118,27 @@ figure {
     margin-left: auto;
   }
 
-  figcaption {
-    font-size: 14px;
-    padding: 5px 10px;
-    margin-top: 5px;
-    background: $accent;
-    color: $background;
-    /* opacity: .8; */
+  
+}
 
-    &.left {
-      text-align: left;
-    }
+figcaption {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  background: $accent;
+  color: $background;
+  /* opacity: .8; */
 
-    &.center {
-      text-align: center;
-    }
+  &.left {
+    text-align: left;
+  }
 
-    &.right {
-      text-align: right;
-    }
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
   }
 }
 

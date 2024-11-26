@@ -95,3 +95,14 @@
 
 <!-- Extended head section-->
 {{ partial "extended_head.html" . }}
+
+ <!-- Include your JavaScript bundle (including carousel.js) -->
+ {{ $menu := resources.Get "js/menu.js" | js.Build }}
+ {{ $prism := resources.Get "js/prism.js" | js.Build }}
+ {{ $carousel := resources.Get "js/carousel.js" | js.Build }}
+ 
+ {{ $bundle := slice $menu $prism $carousel | resources.Concat "bundle.js" | resources.Minify }}
+
+ <!-- Add defer to ensure scripts are executed after DOM parsing -->
+ <script type="text/javascript" src="{{ $bundle.RelPermalink }}" defer></script>
+

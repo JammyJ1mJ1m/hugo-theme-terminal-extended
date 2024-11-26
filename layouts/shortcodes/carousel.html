@@ -1,0 +1,30 @@
+{{ if .Get "src" }}
+{{ $style := .Get "style" | default "" }} 
+{{ $caption := .Get "caption" | default "" }}
+{{ $captionPos := .Get "captionPosition" | default "center" }}
+{{ $captionStyle := .Get "captionStyle" | default "" }}
+
+<div class="carousel-container">
+  {{ $srcs := split (.Get "src") "," }} 
+
+  {{ range $index, $src := $srcs }}
+  <div class="carousel-item fade">
+    <div class="numbertext">{{ add $index 1 }} / {{ len $srcs }}</div> 
+    <img src="{{ $src | safeURL }}" style="{{ $style | safeCSS }}"> 
+    {{ if ne $caption "" }}
+      <figcaption class="{{ $captionPos }}" style="{{ $captionStyle | safeCSS }}">{{ $caption | safeHTML }}</figcaption>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  {{ range $index, $src := $srcs }}
+  <span class="dot" onclick="currentSlide({{ add $index 1 }})"></span>
+  {{ end }}
+</div>
+{{ end }}
